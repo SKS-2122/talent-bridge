@@ -44,4 +44,11 @@ public class VacancyController {
         return new ResponseEntity<Vacancy>(vacancyFromDb,HttpStatus.OK);
     }
 
+    // delete vacancy
+    @DeleteMapping("/vacancy/{vacancyId}")
+    public ResponseEntity<String> delete(@PathVariable Integer vacancyId){
+        String message = this.vacancyService.delete(vacancyId);
+        return new ResponseEntity<String>(message,HttpStatus.OK);
+    }
+
 }
